@@ -96,5 +96,5 @@ jobs:
       - objectTemplate: https://raw.githubusercontent.com/cloud-bulldozer/e2e-benchmarking/master/workloads/kube-burner/workloads/cluster-density/templates/secret.yml
         replicas: 10
 
-      - objectTemplate: https://raw.githubusercontent.com/paigerube14/e2e-benchmarking/quotes/workloads/kube-burner/workloads/cluster-density/templates/configmap.yml
+      - objectTemplate: https://raw.githubusercontent.com/paigerube14/e2e-benchmarking/quotes_2/workloads/kube-burner/workloads/cluster-density/templates/configmap.yml
         replicas: 10
