@@ -21,6 +21,8 @@ spec:
   workload:
     name: kube-burner
     args:
+      workload: ""
+      write_to_file: true
       extra_env_vars:
         PPROF_COLLECTION: ${PPROF_COLLECTION}
         PPROF_COLLECTION_INTERVAL: ${PPROF_COLLECTION_INTERVAL}
