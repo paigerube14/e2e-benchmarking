@@ -27,10 +27,10 @@ collect_pprof() {
 
 
 deploy_operator() {
-  log "Cloning benchmark-operator from branch ${OPERATOR_BRANCH} of ${OPERATOR_REPO}"
+  log "Cloning benchmark-operator from branch ${OPERATOR_REPO} of ${OPERATOR_REPO}"
   rm -rf benchmark-operator
   git clone --single-branch --branch ${OPERATOR_BRANCH} ${OPERATOR_REPO} --depth 1
-  (cd benchmark-operator && make deploy)
+  (cd benchmark-operator && make image-build image-push deploy IMG=quay.io/prubenda/benchmark-operator:write-to-file)
   kubectl apply -f benchmark-operator/resources/backpack_role.yaml
   kubectl apply -f benchmark-operator/resources/kube-burner-role.yml
   log "Waiting for benchmark-operator to be running"
