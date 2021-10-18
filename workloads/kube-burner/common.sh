@@ -10,7 +10,7 @@ else
   export PROM_TOKEN=$(oc -n openshift-monitoring sa get-token prometheus-k8s)
 fi
 export TOLERATIONS="[{key: role, value: workload, effect: NoSchedule}]"
-export UUID=${UUID:-$(uuidgen)}
+export UUID=${UUID:-$(uuidgen | tr "[:upper:]" "[:lower:]")}
 
 log() {
   echo -e "\033[1m$(date "+%d-%m-%YT%H:%M:%S") ${@}\033[0m"
@@ -30,8 +30,8 @@ deploy_operator() {
   log "Cloning benchmark-operator from branch ${OPERATOR_REPO} of ${OPERATOR_REPO}"
   rm -rf benchmark-operator
   git clone --single-branch --branch ${OPERATOR_BRANCH} ${OPERATOR_REPO} --depth 1
-  dnf -y install podman
-  (cd benchmark-operator && make image-build image-push deploy IMG=quay.io/prubenda/benchmark-operator:write-to-file)
+  yum install podman
+  (cd benchmark-operator && make image-build deploy IMG=quay.io/prubenda/benchmark-operator:write-to-file)
   kubectl apply -f benchmark-operator/resources/backpack_role.yaml
   kubectl apply -f benchmark-operator/resources/kube-burner-role.yml
   log "Waiting for benchmark-operator to be running"
