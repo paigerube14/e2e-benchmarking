@@ -26,6 +26,13 @@ delete_pprof_secrets
 
 ls
 
+cd metrics-profiles
+
+ls
+
+cd ..
+
+
 if [[ ${ENABLE_SNAPPY_BACKUP} == "true" ]] ; then
   snappy_backup kube-burner-clusterdensity
 fi
