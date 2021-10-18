@@ -26,6 +26,8 @@ delete_pprof_secrets
 
 ls
 
+cat collected-metrics/cluster-density-podLatency.json
+cat collected-metrics/cluster-density-podLatency-summary.json
 
 if [[ ${ENABLE_SNAPPY_BACKUP} == "true" ]] ; then
   snappy_backup kube-burner-clusterdensity
