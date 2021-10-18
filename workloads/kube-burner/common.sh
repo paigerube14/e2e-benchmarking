@@ -51,7 +51,7 @@ deploy_workload() {
   cat ${tmpdir}/config.yml
   echo "config ${tmpdir}/config.yml"
   if [[ -n ${METRICS_PROFILE} ]]; then
-    cp metrics-profiles/${METRICS_PROFILE} ${tmpdir}/metrics.yml || cp ${METRICS_PROFILE} ${tmpdir}/metrics.yml
+    cp ${METRICS_PROFILE} ${tmpdir}/metrics.yml
   fi
   if [[ -n ${ALERTS_PROFILE} ]]; then
    cp ${ALERTS_PROFILE} ${tmpdir}/alerts.yml
