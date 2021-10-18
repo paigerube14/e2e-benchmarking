@@ -24,12 +24,9 @@ if [[ ${CLEANUP_WHEN_FINISH} == "true" ]]; then
 fi
 delete_pprof_secrets
 
-ls
-
 cd metrics-profiles
 
 ls
-
 cd ..
 
 
