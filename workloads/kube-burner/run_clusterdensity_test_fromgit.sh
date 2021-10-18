@@ -26,6 +26,8 @@ delete_pprof_secrets
 
 ls
 
+ls /root/
+
 cat collected-metrics/cluster-density-podLatency.json
 cat collected-metrics/cluster-density-podLatency-summary.json
 
