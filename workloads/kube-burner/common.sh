@@ -30,8 +30,6 @@ deploy_operator() {
   log "Cloning benchmark-operator from branch ${OPERATOR_REPO} of ${OPERATOR_REPO}"
   rm -rf benchmark-operator
   git clone --single-branch --branch ${OPERATOR_BRANCH} ${OPERATOR_REPO} --depth 1
-  sudo apt-get -y update
-  sudo apt-get -y install podman
   (cd benchmark-operator && make image-build deploy IMG=quay.io/prubenda/benchmark-operator:write-to-file)
   kubectl apply -f benchmark-operator/resources/backpack_role.yaml
   kubectl apply -f benchmark-operator/resources/kube-burner-role.yml

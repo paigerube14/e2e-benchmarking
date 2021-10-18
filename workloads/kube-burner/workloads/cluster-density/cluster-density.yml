@@ -1,6 +1,7 @@
 ---
 global:
-  writeToFile: false
+  writeToFile: true
+  createTarball: true
   indexerConfig:
     enabled: ${INDEXING}
     esServers: ["${ES_SERVER}"]
