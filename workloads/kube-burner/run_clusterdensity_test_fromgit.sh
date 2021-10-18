@@ -3,7 +3,7 @@
 set -e
 
 WORKLOAD_TEMPLATE=workloads/cluster-density/cluster-density.yml
-METRICS_PROFILE=${METRICS_PROFILE:-metrics-profiles/metrics-aggregated.yaml}
+METRICS_PROFILE=${METRICS_PROFILE:-metrics-profiles/metrics-aggregated.yml}
 export TEST_JOB_ITERATIONS=${JOB_ITERATIONS:-1}
 export WORKLOAD=cluster-density
 
@@ -24,10 +24,7 @@ if [[ ${CLEANUP_WHEN_FINISH} == "true" ]]; then
 fi
 delete_pprof_secrets
 
-cd metrics-profiles
-
 ls
-cd ..
 
 
 if [[ ${ENABLE_SNAPPY_BACKUP} == "true" ]] ; then
