@@ -2,6 +2,7 @@
 global:
   writeToFile: true
   createTarball: true
+  metricsDirectory: /root/collected-metrics
   indexerConfig:
     enabled: ${INDEXING}
     esServers: ["${ES_SERVER}"]
