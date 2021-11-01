@@ -7,7 +7,7 @@ install_cli() {
       if [[ "${isBareMetal}" == "true" ]]; then
         python3.8 -m venv ${ripsaw_tmp}
       else
-        python -m venv ${ripsaw_tmp}
+        python3 -m venv ${ripsaw_tmp}
       fi
   fi
   source ${ripsaw_tmp}/bin/activate
