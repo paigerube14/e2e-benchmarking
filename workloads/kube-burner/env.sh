@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Benchark-operator
-export OPERATOR_REPO=${OPERATOR_REPO:-https://github.com/paigerube14/benchmark-operator.git}
-export OPERATOR_BRANCH=${OPERATOR_BRANCH:-'write-to-file'}
+export OPERATOR_REPO=${OPERATOR_REPO:-https://github.com/cloud-bulldozer/benchmark-operator.git}
+export OPERATOR_BRANCH=${OPERATOR_BRANCH:-'master'}
 export POD_READY_TIMEOUT=${POD_READY_TIMEOUT:-180}
 
 # Indexing variables
