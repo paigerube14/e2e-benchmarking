@@ -71,3 +71,10 @@ export GIT_URL=""
 # Thresholds
 export POD_READY_THRESHOLD=${POD_READY_THRESHOLD:-5000ms}
 
+#Comparison
+ES_SERVER_BASELINE=${ES_SERVER_BASELINE:-https://search-perfscale-dev-chmf5l4sh66lvxbnadi4bznl3a.us-west-2.es.amazonaws.com:443}
+COMPARISON_CONFIG=${COMPARISON_CONFIG:-${PWD}/kube-burner-touchstone.json}
+COMPARISON_RC=${COMPARISON_RC:-0}
+
+GSHEET_KEY_LOCATION=${GSHEET_KEY_LOCATION}
+EMAIL_ID_FOR_RESULTS_SHEET=${EMAIL_ID_FOR_RESULTS_SHEET}
