@@ -86,7 +86,7 @@ if [[ ${PPROF_COLLECTION} == "true" ]] ; then
   delete_pprof_secrets
   delete_oldpprof_folder
   get_pprof_secrets
-fi 
+fi
 run_workload kube-burner-crd.yaml
 if [[ ${WORKLOAD} == node-density* ]]; then
   unlabel_nodes
@@ -98,5 +98,8 @@ delete_pprof_secrets
 if [[ ${ENABLE_SNAPPY_BACKUP} == "true" ]] ; then
   snappy_backup kube-burner-${WORKLOAD}
 fi
+
+export COMPARISON_OUTPUT=${PWD}/${WORKLOAD}-${UUID}.csv
+run_benchmark_comparison
 
 exit ${rc}
