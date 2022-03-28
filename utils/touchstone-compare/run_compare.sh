@@ -7,7 +7,8 @@ tool=${1}
 python3 -m venv ./venv
 source ./venv/bin/activate
 set -x
-git clone https://github.com/cloud-bulldozer/benchmark-comparison
+git clone -b compare_val https://github.com/paigerube14/benchmark-comparison/
+
 ln -s benchmark-comparison/config config
 ln -s benchmark-comparison/tolerancy-configs tolerancy-configs
 set +x
