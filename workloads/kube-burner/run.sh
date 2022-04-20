@@ -145,4 +145,5 @@ run_benchmark_comparison
 
 remove_benchmark_operator ${OPERATOR_REPO} ${OPERATOR_BRANCH}
 
+echo "status: ${rc}"
 exit ${rc}
