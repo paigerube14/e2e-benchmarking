@@ -176,6 +176,8 @@ check_metric_to_modify() {
 }
 
 run_benchmark_comparison() {
+   echo "es server $ES_SERVER "
+   echo " compare config $COMPARISON_CONFIG"
    if [[ -n ${ES_SERVER} ]] && [[ -n ${COMPARISON_CONFIG} ]]; then
      log "Installing touchstone"
      install_touchstone
