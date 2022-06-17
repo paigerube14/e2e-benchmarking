@@ -167,10 +167,12 @@ check_metric_to_modify() {
   export div_by=1
   echo $config | grep -i memory
   if [[ $? == 0 ]]; then 
+    echo "memory"
    export div_by=1048576
   fi
   echo $config | grep -i latency
   if [[ $? == 0 ]]; then
+    echo "latency"
     export div_by=1000
   fi
 }
@@ -190,6 +192,7 @@ run_benchmark_comparison() {
        check_metric_to_modify
        envsubst < touchstone-configs/${config} > /tmp/${config}
        COMPARISON_OUTPUT="${res_output_dir}/${config}"
+       echo "output $COMPARISON_OUTPUT"
        if [[ -n ${ES_SERVER_BASELINE} ]] && [[ -n ${BASELINE_UUID} ]]; then
          log "Comparing with baseline"
          compare "${ES_SERVER_BASELINE} ${ES_SERVER}" "${BASELINE_UUID} ${UUID}" "/tmp/${config}" "${GEN_CSV}"
