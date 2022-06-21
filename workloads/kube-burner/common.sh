@@ -171,6 +171,7 @@ check_metric_to_modify() {
    export div_by=1048576
   fi
   echo $config | grep -i latency
+
   if [[ $? == 0 ]]; then
     echo "latency"
     export div_by=1000
