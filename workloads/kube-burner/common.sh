@@ -175,6 +175,7 @@ check_metric_to_modify() {
     echo "latency"
     export div_by=1000
   fi
+  echo "done metric"
 }
 
 run_benchmark_comparison() {
@@ -191,6 +192,8 @@ run_benchmark_comparison() {
      for config in ${COMPARISON_CONFIG}; do
        check_metric_to_modify
        envsubst < touchstone-configs/${config} > /tmp/${config}
+       echo "set env $config "
+       cat /tmp/${config}
        COMPARISON_OUTPUT="${res_output_dir}/${config}"
        echo "output $COMPARISON_OUTPUT"
        if [[ -n ${ES_SERVER_BASELINE} ]] && [[ -n ${BASELINE_UUID} ]]; then
