@@ -74,6 +74,6 @@ function run_build_workload() {
   grep "Good builds included in stats" conc_builds_$proj.out >> conc_builds_results.out
   echo "==============================================================" >> conc_builds_results.out
   # have to clean up to be able to run with new configmap/kube-burner with same uuid
-  cleanup
+  #cleanup
 
 }
