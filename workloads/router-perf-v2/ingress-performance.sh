@@ -45,11 +45,11 @@ until oc rsync -n http-scale-client ${client_pod}:/tmp/results.csv ./; do
   sleep 10
 done
 
-tune_workload_node delete
-cleanup_infra
-reschedule_monitoring_stack infra
-run_benchmark_comparison
+# tune_workload_node delete
+# cleanup_infra
+# reschedule_monitoring_stack infra
+# run_benchmark_comparison
 
-if [[ ${ENABLE_SNAPPY_BACKUP} == "true" ]] ; then
- snappy_backup "csv json" "http-perf.yml" "router-perf-v2"
-fi
+# if [[ ${ENABLE_SNAPPY_BACKUP} == "true" ]] ; then
+#  snappy_backup "csv json" "http-perf.yml" "router-perf-v2"
+# fi
