@@ -59,10 +59,10 @@ function run_build_workload() {
   rm -rf conc_builds_$app.out
   . ./builds/$app.sh
 
-  run_workload kube-burner-crd.yaml
-  sleep 15
-  wait_for_running_builds $app
-  sleep 10
+  #run_workload kube-burner-crd.yaml
+  # sleep 15
+  # wait_for_running_builds $app
+  # sleep 10
 
   prepare_builds_file conc_builds_$app.out
   run_builds $app

@@ -133,7 +133,7 @@ if [[ ${WORKLOAD} == "concurrent-builds" ]]; then
   unlabel_nodes_with_label $label
   cat conc_builds_results.out
 else
-  run_workload kube-burner-crd.yaml
+  #run_workload kube-burner-crd.yaml
 fi
 if [[ ${WORKLOAD} == node-density* ]]; then
   unlabel_nodes_with_label $label
