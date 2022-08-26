@@ -4,10 +4,12 @@ metadata:
   name: {{.JobName}}-{{.Iteration}}
   labels:
     name: {{.JobName}}
+  annotations:    
+    openshift.io/scc: privileged
 spec:
   nodeSelector: {{.nodeSelector}}
   securityContext:
-    runAsNonRoot: true 
+    runAsNonRoot: true
   containers:
   - name: node-density
     image: {{.containerImage}}
@@ -21,3 +23,9 @@ spec:
     imagePullPolicy: IfNotPresent
     securityContext:
       privileged: false
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop: 
+          - ALL 
+
+
