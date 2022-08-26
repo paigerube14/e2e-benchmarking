@@ -4,8 +4,11 @@ metadata:
   name: {{.JobName}}-{{.Iteration}}
   labels:
     name: {{.JobName}}
+
 spec:
   nodeSelector: {{.nodeSelector}}
+  securityContext:
+    runAsNonRoot: true 
   containers:
   - name: node-density
     image: {{.containerImage}}
