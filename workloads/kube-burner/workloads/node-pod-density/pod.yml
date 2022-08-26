@@ -4,7 +4,6 @@ metadata:
   name: {{.JobName}}-{{.Iteration}}
   labels:
     name: {{.JobName}}
-
 spec:
   nodeSelector: {{.nodeSelector}}
   securityContext:
@@ -21,4 +20,4 @@ spec:
       protocol: TCP
     imagePullPolicy: IfNotPresent
     securityContext:
-      privileged: true
+      privileged: false
