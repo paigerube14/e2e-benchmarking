@@ -4,8 +4,8 @@ metadata:
   name: {{.JobName}}-{{.Iteration}}
   labels:
     name: {{.JobName}}
-  annotations:    
-    openshift.io/scc: privileged
+    pod-security.kubernetes.io/enforce: privileged
+    pod-security.kubernetes.io/enforce-version: latest
 spec:
   nodeSelector: {{.nodeSelector}}
   securityContext:
@@ -21,11 +21,5 @@ spec:
     - containerPort: 8080
       protocol: TCP
     imagePullPolicy: IfNotPresent
-    securityContext:
-      privileged: false
-      allowPrivilegeEscalation: false
-      capabilities:
-        drop: 
-          - ALL 
 
 
