@@ -1,0 +1,27 @@
+{
+    "elasticsearch": {
+      "ripsaw-kube-burner": [
+        {
+          "filter": {
+            "metricName.keyword": "crioCPU"
+          },
+          "aggregations": {
+            "value": [
+              "max"
+            ]
+          }
+        },
+        {
+            "filter": {
+              "metricName.keyword": "crioMemory"
+            },
+            "aggregations": {
+              "value": [
+                "max"
+              ]
+            }
+          }
+      ]
+    }
+  }
+  
