@@ -5,6 +5,9 @@
           "filter": {
             "metricName.keyword": "99thEtcdDiskBackendCommitDurationSeconds"
           },
+          "buckets": [
+            "labels.pod.keyword"
+          ],
           "aggregations": {
             "value": [
               "max"
@@ -15,6 +18,9 @@
             "filter": {
               "metricName.keyword": "99thEtcdDiskWalFsyncDurationSeconds"
             },
+            "buckets": [
+                "labels.pod.keyword"
+              ],
             "aggregations": {
               "value": [
                 "max"
@@ -25,6 +31,9 @@
             "filter": {
               "metricName.keyword": "99thEtcdRoundTripTimeSeconds"
             },
+            "buckets": [
+                "labels.pod.keyword"
+              ],
             "aggregations": {
               "value": [
                 "max"
