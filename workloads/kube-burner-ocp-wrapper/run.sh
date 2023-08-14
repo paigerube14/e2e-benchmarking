@@ -1,7 +1,6 @@
 #!/bin/bash -e
 
 set -e
-source ./egressip.sh
 
 ES_SERVER=${ES_SERVER=https://USER:PASSWORD@HOSTNAME:443}
 LOG_LEVEL=${LOG_LEVEL:-info}
