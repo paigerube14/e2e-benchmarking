@@ -12,7 +12,7 @@ def read_config_file(file_name):
 
 
 data_func = "mean"
-previous_version = os.getenv("previous_version", False)
+previous_version = os.getenv("PREVIOUS_VERSION", False)
 tolerancy_num = os.getenv("tolerancy", 20)
 time_frame = os.getenv("TIME_RANGE", "2 w")
 
@@ -65,7 +65,7 @@ else:
     filepath = Path(file_path_name)
     filepath.parent.mkdir(parents=True, exist_ok=True)
 
-    write_uuid_to_csv(filepath)
+    #write_uuid_to_csv(filepath)
     for metric in metrics:   
         data_func = metric['type']
         divider = metric['divider']
