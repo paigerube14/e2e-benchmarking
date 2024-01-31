@@ -307,9 +307,9 @@ def get_match_runs(meta: dict, workerCount: False, previous_version=False, time_
         _type_: _description_
     """
     index = "perf_scale_ci"
-    version = meta["ocpVersion"][:4]
+    version = float(meta["ocpVersion"][:4])
     if previous_version:
-        version = float(version) - 0.01
+        version = version - 0.01
 
     # https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-range-query.html
 
