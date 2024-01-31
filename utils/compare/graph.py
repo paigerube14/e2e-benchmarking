@@ -257,9 +257,11 @@ def get_past_date(str_date_ago):
     elif splitted[1].lower() in ["wk", "wks", "week", "weeks", "w"]:
         date = today_now - timedelta(weeks=int(splitted[0]))
     elif splitted[1].lower() in ["mon", "mons", "month", "months", "m"]:
-        date = today_now - timedelta(months=int(splitted[0]))
+        weeks = int(splitted[0]) * 4
+        date = today_now - timedelta(weeks=weeks)
     elif splitted[1].lower() in ["yrs", "yr", "years", "year", "y"]:
-        date = today_now - timedelta(years=int(splitted[0]))
+        num_days = int(splitted[0]) * 365
+        date = today_now - timedelta(years=num_days)
     return format_dt_string(date)
 
 
