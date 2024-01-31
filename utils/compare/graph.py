@@ -261,7 +261,7 @@ def get_past_date(str_date_ago):
         date = today_now - timedelta(weeks=weeks)
     elif splitted[1].lower() in ["yrs", "yr", "years", "year", "y"]:
         num_days = int(splitted[0]) * 365
-        date = today_now - timedelta(years=num_days)
+        date = today_now - timedelta(days=num_days)
     return format_dt_string(date)
 
 
