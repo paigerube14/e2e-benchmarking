@@ -135,6 +135,7 @@ def generate_pass_fail(oMetrics, nMetrics, columns, tolerancy_num):
         dataFrame: data frame of all current and past data with tolerancy and pass/fail
     """
     if not oMetrics.empty and not nMetrics.empty:
+        print("tolerancy num" + str(tolerancy_num))
         all_merged = pd_merge(oMetrics, nMetrics, columns)
 
         all_result_tolerancy = tolerancy(all_merged, tolerancy_num)
