@@ -38,9 +38,9 @@ def find_result(row, tolerancy):
     #print('row difference' + str(row['difference']))
     #print('tolerancy' + str(tolerancy))
     # Fail if value is a more negative than tolerancy
-    if row["difference"] < 0 and tolerancy < row["difference"]:
+    if row["difference"] < 0 and tolerancy < abs(row["difference"]):
         return "Fail"
-    elif row["difference"] > 0 and tolerancy > row["difference"]:
+    elif row["difference"] > 0 and tolerancy < row["difference"]:
         return "Fail"
     else:
         return "Pass"
