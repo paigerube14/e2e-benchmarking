@@ -35,8 +35,10 @@ def find_result(row, tolerancy):
     """
     if np.isinf(row["difference"]):
         return "Pass"
+    #print('row difference' + str(row['difference']))
+    #print('tolerancy' + str(tolerancy))
     # Fail if value is a more negative than tolerancy
-    if row["difference"] < 0 and tolerancy > row["difference"]:
+    if row["difference"] < 0 and tolerancy < row["difference"]:
         return "Fail"
     elif row["difference"] > 0 and tolerancy > row["difference"]:
         return "Fail"
