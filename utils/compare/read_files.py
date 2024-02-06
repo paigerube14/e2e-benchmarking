@@ -45,8 +45,9 @@ else:
     kubelet_json = read_config_file("configs/kubelet.json")
     etcd_json = read_config_file("configs/etcd.json")
     master_json = read_config_file("configs/master_node.json")
-    worker_agg_json = read_config_file("configs/worker_node.json")
-    metrics = [latency_json, crio_json,etcd_json, kubelet_json,master_json]
+    worker_json = read_config_file("configs/worker_node.json")
+    worker_agg_json = read_config_file("configs/worker_agg_node.json")
+    metrics = [latency_json, crio_json,etcd_json, kubelet_json,master_json, worker_json, worker_agg_json]
 
 
 # need to get file list
