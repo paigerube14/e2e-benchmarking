@@ -24,7 +24,8 @@ class ElasticService:
             response = self.es.search(
             index=indice,
             body=jsonable_encoder(query),
-            size=10000)
+            size=10000,
+            timeout="30s")
         except Exception as e: 
             print('exception ' + str(e))
             response = []

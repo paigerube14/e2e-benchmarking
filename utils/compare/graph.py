@@ -38,7 +38,9 @@ def find_result(row, tolerancy):
     #print('row difference' + str(row['difference']))
     #print('tolerancy' + str(tolerancy))
     # Fail if value is a more negative than tolerancy
-    if row["difference"] < 0 and tolerancy < abs(row["difference"]):
+    if tolerancy > 0  and tolerancy < row["difference"]:
+        return "Pass"
+    elif row["difference"] < 0 and tolerancy < abs(row["difference"]):
         return "Fail"
     elif row["difference"] > 0 and tolerancy < row["difference"]:
         return "Fail"
@@ -58,7 +60,6 @@ def tolerancy(all_data_points, tolerancy_percent):
     Returns:
         DataFrame: All data points with percent difference and pass/fail column
     """
-    print("tolerancy " + str(all_data_points))
     all_data_points.fillna(method="ffill")
 
     result = all_data_points.iloc[:, [-2, -1]].pct_change(axis=1).iloc[:, 1] * 100
@@ -159,11 +160,14 @@ def processData(data: dict, columns: list[str], func="mean"):
     """
     # pprint.pprint(data)
     df = pd.json_normalize(data)
+
     filterDF = createDataFrame(df, columns)
+
     if func == "avg" or func == "mean":
         ptile = filterDF.groupby(columns[:-1])[columns[-1]].mean()
     elif func == "max":
         ptile = filterDF.groupby(columns[:-1])[columns[-1]].max()
+
     return ptile
 
 
@@ -232,7 +236,6 @@ def getResults(uuid: str, uuids: list, index_str: str, metrics: dict):
         "query": {"query_string": {"query": (f'( uuid: "{ids}" )' + metric_string)}}
     }
     print(query)
-    print("index " + str(index_str))
     es = ElasticService(index=index_str)
     response = es.post(query)
     # print('respnse ' + str(response))

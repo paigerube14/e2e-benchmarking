@@ -43,11 +43,12 @@ else:
     latency_json = read_config_file("configs/podlatency.json")
     crio_json = read_config_file("configs/crio.json")
     kubelet_json = read_config_file("configs/kubelet.json")
-    etcd_json = read_config_file("configs/etcd.json")
+    #etcd_json = read_config_file("configs/etcd.json")
     master_json = read_config_file("configs/master_node.json")
     worker_json = read_config_file("configs/worker_node.json")
     worker_agg_json = read_config_file("configs/worker_agg_node.json")
-    metrics = [latency_json, crio_json,etcd_json, kubelet_json,master_json, worker_json, worker_agg_json]
+    cpu_json = read_config_file('configs/container_cpu.json')
+    metrics = [latency_json, crio_json, kubelet_json,master_json, worker_json, worker_agg_json, cpu_json]
 
 
 # need to get file list
@@ -81,6 +82,8 @@ else:
 
             oMetrics, nMetrics,columns = graph.process_all_data(metric_of_interest, find_metrics, uuid, ids, data_func, index, divider, additional_columns)
             # get pass fail
+            print("o metrics" + str(oMetrics))
+            print("n metric" + str(nMetrics))
             returned_metrics = graph.generate_pass_fail(oMetrics, nMetrics, columns, tolerancy_num)
             print('str type' + str(type(returned_metrics)))
             if len(returned_metrics) > 0:

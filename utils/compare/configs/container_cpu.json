@@ -1,0 +1,19 @@
+{
+    "metrics": [
+        {
+            "metricName": "containerCPU",
+            "labels.namespace": "openshift-kube-apiserver"
+        },
+        {
+            "metricName": "containerCPU",
+            "labels.namespace": "openshift-ovn-kubernetes"
+        },
+        {
+            "metricName": "containerCPU",
+            "labels.namespace": "openshift-etcd"
+        }
+    ],
+    "metric_of_interest": "value",
+    "divider": 1,
+    "type": "avg"
+}
