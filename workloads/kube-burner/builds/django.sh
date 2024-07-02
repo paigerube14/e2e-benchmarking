@@ -3,7 +3,7 @@ export APP=django
 export BUILD_IMAGE_STREAM=django-psql-example
 
 export SOURCE_STRAT_ENV=PIP_INDEX_URL
-export SOURCE_STRAT_FROM_VERSION=latest
+export SOURCE_STRAT_FROM_VERSION=3.8
 export SOURCE_STRAT_FROM=python
 export POST_COMMIT_SCRIPT="./manage.py test"
 
