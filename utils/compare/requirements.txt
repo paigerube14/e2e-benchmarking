@@ -1,4 +1,4 @@
 elasticsearch<7.14.0
 pandas
-numpy
+numpy==1.26.2
 fastapi
